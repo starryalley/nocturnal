@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -1213,14 +1213,6 @@ Gw
                             </connections>
                         </menuItem>
                         <menuItem isSeparatorItem="YES" id="LgQ-3K-sLm"/>
-                        <menuItem title="Dimness:" enabled="NO" id="sPV-BF-rsJ" userLabel="Dimness">
-                            <attributedString key="attributedTitle"/>
-                            <modifierMask key="keyEquivalentModifierMask"/>
-                        </menuItem>
-                        <menuItem title="Dimness Slider" id="s6g-f4-A3S" userLabel="Dimmer Slider">
-                            <modifierMask key="keyEquivalentModifierMask"/>
-                        </menuItem>
-                        <menuItem isSeparatorItem="YES" id="0X9-gw-9nz"/>
                         <menuItem title="Night Shift:" enabled="NO" id="pXC-WU-Jc8" userLabel="Night Shift">
                             <attributedString key="attributedTitle"/>
                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -1270,8 +1262,6 @@ Gw
                         </menuItem>
                     </items>
                     <connections>
-                        <outlet property="dimnessLabel" destination="sPV-BF-rsJ" id="lKK-U2-EoK"/>
-                        <outlet property="dimnessSliderView" destination="dQw-1Q-mAH" id="8qH-ba-W9s"/>
                         <outlet property="disableCustomMenuItem" destination="3VP-Nv-qsM" id="fGY-DY-qZg"/>
                         <outlet property="disableHourMenuItem" destination="af8-VH-x6c" id="84a-9w-YY7"/>
                         <outlet property="disableMenuItem" destination="NLh-V4-4lh" id="Q9o-gZ-wO7"/>
@@ -1301,28 +1291,6 @@ Gw
                     </constraints>
                     <connections>
                         <outlet property="nightShiftSlider" destination="rkE-dR-jgx" id="KOl-Sm-MVf"/>
-                    </connections>
-                </customView>
-                <customView id="dQw-1Q-mAH" userLabel="Dimness Slider View" customClass="DimnessSliderView" customModule="Nocturnal" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="200" height="28"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <subviews>
-                        <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nXN-Cb-kxX">
-                            <rect key="frame" x="14" y="-2" width="172" height="28"/>
-                            <sliderCell key="cell" state="on" alignment="left" maxValue="1" tickMarkPosition="above" sliderType="linear" id="iQo-No-18n"/>
-                            <connections>
-                                <action selector="dimnessSliderMoved:" target="dQw-1Q-mAH" id="qrb-Kj-M9y"/>
-                            </connections>
-                        </slider>
-                    </subviews>
-                    <constraints>
-                        <constraint firstItem="nXN-Cb-kxX" firstAttribute="leading" secondItem="dQw-1Q-mAH" secondAttribute="leading" constant="16" id="L8G-l4-bMj"/>
-                        <constraint firstItem="nXN-Cb-kxX" firstAttribute="centerX" secondItem="dQw-1Q-mAH" secondAttribute="centerX" id="bS5-aP-oGi"/>
-                        <constraint firstItem="nXN-Cb-kxX" firstAttribute="centerY" secondItem="dQw-1Q-mAH" secondAttribute="centerY" id="mL1-mX-8Ut"/>
-                        <constraint firstAttribute="trailing" secondItem="nXN-Cb-kxX" secondAttribute="trailing" constant="16" id="vV1-zQ-GqZ"/>
-                    </constraints>
-                    <connections>
-                        <outlet property="dimnessSlider" destination="nXN-Cb-kxX" id="4qq-sO-Ddh"/>
                     </connections>
                 </customView>
             </objects>

@@ -11,8 +11,6 @@ import Cocoa
 class MenuController: NSMenu, NSMenuDelegate {
     @IBOutlet var timerMenuItem: NSMenuItem!
     @IBOutlet var disableMenuItem: NSMenuItem!
-    @IBOutlet var dimnessLabel: NSMenuItem!
-    @IBOutlet var dimnessSliderView: DimnessSliderView!
     @IBOutlet var nightShiftLabel: NSMenuItem!
     @IBOutlet var nightShiftSliderView: NightShiftSliderView!
     @IBOutlet var disableHourMenuItem: NSMenuItem!
@@ -21,7 +19,6 @@ class MenuController: NSMenu, NSMenuDelegate {
 
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     var nightShiftSliderMenuItem: NSMenuItem!
-    var dimnessSliderMenuItem: NSMenuItem!
     let calendar = NSCalendar(identifier: .gregorian)!
 
     override func awakeFromNib() {
@@ -31,7 +28,6 @@ class MenuController: NSMenu, NSMenuDelegate {
         timerMenuItem.isHidden = true
         timerMenuItem.isEnabled = false
         setupNightShiftMenuItems()
-        setupDimnessMenuItems()
         // Check if Mac supports Touch Bar
         if NSClassFromString("NSTouchBar") == nil {
             turnOffTouchBarMenuItem.isEnabled = false
@@ -47,14 +43,11 @@ class MenuController: NSMenu, NSMenuDelegate {
         // Sliders
         if StateManager.isNocturnalEnabled {
             disableMenuItem.title = "Disable Nocturnal"
-            dimnessSliderView.dimnessSlider.isEnabled = true
-            dimnessSliderView.dimnessSlider.floatValue = Dimness.strength
             nightShiftSliderView.nightShiftSlider.isEnabled = true
             nightShiftSliderView.nightShiftSlider.floatValue = NightShift.strength
             turnOffTouchBarMenuItem.isEnabled = true
         } else {
             disableMenuItem.title = "Enable Nocturnal"
-            dimnessSliderView.dimnessSlider.isEnabled = false
             nightShiftSliderView.nightShiftSlider.isEnabled = false
             turnOffTouchBarMenuItem.isEnabled = false
         }
@@ -89,13 +82,6 @@ class MenuController: NSMenu, NSMenuDelegate {
                 DispatchQueue.main.async { button.image = icon }
             }
         }
-    }
-
-    func setupDimnessMenuItems() {
-        dimnessLabel.attributedTitle = NSAttributedString(string: "Dimness:", attributes: [NSAttributedString.Key.foregroundColor: Utils.getGrayscaleColorForAppearance()])
-        dimnessSliderView.setup()
-        dimnessSliderMenuItem = item(withTitle: "Dimness Slider")
-        dimnessSliderMenuItem.view = dimnessSliderView
     }
 
     func setupNightShiftMenuItems() {

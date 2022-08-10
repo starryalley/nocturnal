@@ -21,7 +21,7 @@ class DimnessWindowController: NSWindowController {
         window.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.overlayWindow)))
         window.styleMask = [.borderless]
         window.setFrame(screen.frame, display: true)
-        window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
+        window.collectionBehavior = [.stationary, .fullScreenAuxiliary]
         super.init(window: window)
     }
 
